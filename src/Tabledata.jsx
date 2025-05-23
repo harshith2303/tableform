@@ -9,7 +9,7 @@ function Tableform() {
   useEffect(() => {
     fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json")
       .then((rawData) => rawData.json())
-      .then((finalData) => setData(finalData));
+      .then((finalData) => setData(finalData)).catch((err)=>alert("failed to fetch data"+err));
   }, []);
 
   
@@ -67,7 +67,7 @@ function Tableform() {
         <button
           style={{ background: "rgb(0,137,66)", color: "white", marginRight: "5px" }}
           onClick={handlePrev}
-          disabled={currentPage === 1}
+        //   disabled={currentPage === 1}
         >
           Previous
         </button>
